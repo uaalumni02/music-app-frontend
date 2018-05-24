@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link type="text/css" rel="stylesheet" href="style.css" >
+    <title>Music App</title>
+
+</head>
+<body>
+        <h1 align="center">Welcome To My Music App</h1>
+        <h2 align="center">Add Your Favorite Artist To Our Database!!</h2>
+        <br><br><br>
+        <form id="addArtistForm" action="" method="POST"
+                <br />
+            Artist Name:<br>
+            <input type="text" required minlength="2" name="artist" value=""  required<br>
+            <br><br><br>
+            Song Title:<br>
+            <input type="text" required minlength="2"  name="title" value=""  required><br>
+            <br><br><br>
+            Release Year:<br>
+            <input type="number" min="0" max="2018" name="year" value=""  required><br>
+            <br><br><br>
+            YouTube Link:<br>
+            <input type="url" placeholder="http://www.youtube.com"  name="link" value="" required><br>
+            <br><br>
+            <input type="submit" value="Submit">
+          </form>
+
+    </body>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js" integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8=" crossorigin="anonymous"></script>
+    <script>
+        $(document).ready(() => {
+            $('#addArtistForm').on('submit', (event) => {
+               console.log($('#addArtistForm').serialize())
+              // console.log($(this).serialize());
+              $.post('http://localhost:3000/api/music', $('#addArtistForm').serialize(), function(response) {
+                  console.log(response);
+                  if(response) {
+                    window.location.replace("http://localhost:8080/music");
+                  }
+              });
+                event.preventDefault();
+            });
+
+          
+        });
+    </script>
+    </html>

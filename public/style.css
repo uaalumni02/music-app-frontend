@@ -1,0 +1,9 @@
+
+body {
+    background-color: lightblue;
+}
+
+.my_class_name {
+	margin: 0 auto;
+	border: 5px dotted #dd0000;
+}

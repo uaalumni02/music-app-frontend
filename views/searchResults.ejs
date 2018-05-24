@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-16">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="http://localhost:8080/style.css">
+    <title>Music App</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css">
+</head>
+
+<body>
+    <h1 align="center" class="text-success">Results of Your Search!!</h1>
+    <div>Hello World </div>
+    <p><%= response['Link'] %></p>
+
+    <p>
+        <% for(var i=0; i<response.length; i++) {%>
+            <!-- // Video 
+           <p><%= response[i]['Artist'] %></p>
+           <p><%= response[i]['Title'] %></p>
+           <p><%= response[i]['Year'] %></p> -->
+           <p><%= response[i]['Link'] %></p>
+
+
+            <div class="card" style="width: 18rem;">
+                <!-- <img class="card-img-top" src="..." alt="Card image cap"> -->
+                <iframe width="425" height="250" src="https://www.youtube.com/embed/<%= response[i]['Link'] %>" frameborder="0" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                <div class="card-body">
+                    <h5 class="card-title"><%= response[i]['Artist'] %></h5>
+                    <p class="card-text"><%= response[i]['Title'] %></p>
+                    <a href="#" class="btn btn-primary"><%= response[i]['Year'] %></a>
+                </div>
+            </div>
+            <% } %>
+    </p>
+
+    <!-- <p>Artist Name: &nbsp <%= response.Artist %> </p>
+    <p>Song Title: &nbsp <%= response.Title %> </p>
+    <p>Year: &nbsp <%= response.Year %> </p> -->
+
+</body>
+
+
+</html>
